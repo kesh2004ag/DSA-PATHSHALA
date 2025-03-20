@@ -1,0 +1,275 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 0%, 100%); /* Default light mode background */
+    color: #333; /* Default light mode text color */
+    left: 5px;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the heading horizontally */
+  text-align: left;    /* Keeps the list text aligned to the left */
+  padding: 1rem;       /* Adds some spacing */
+}
+
+h1 {
+  text-align: center; /* Centers the heading itself */
+  margin-bottom: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style-type: decimal; 
+  text-align: left;
+  padding-left: 0;          /* Removes extra indentation for the list */
+  margin: 0;
+}
+
+
+/* Logo Styling */
+.logo h1 {
+    color: rgb(192, 126, 126);
+    margin: 0;
+    font-size: 30px;
+}
+
+/* Navigation Links Styling */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Exact centering adjustment */
+}
+
+/* Buttons Animation Styling */
+.nav-links a {
+    text-decoration: none;
+    padding: 1em 1em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    top: -25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #ffb0b0;
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #ffffff;
+    display: inline-block; /* Ensures button behaves as a block-level element */
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    transform: scale(1.0);
+    outline: 2px solid #ffb5b5;
+    box-shadow: 2px 3px 10px -1px #ffffff;
+}
+
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ef8989;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+}
+
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* Active Link */
+.nav-links a.active {
+    background-color: #444; /* Highlight active page */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffc7c7;
+    transition: transform 0.2s;
+    position: absolute;
+    right: 20px; /* Keeps button at the far right */
+    top: 20px;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
+/* Main Content */
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #121212; /* Dark mode background */
+    color: #000000; /* Dark mode text color */
+}
+
+body.dark-mode header {
+    background-color: #454545; /* Dark mode header background */
+}
+
+body.dark-mode .nav-links a {
+    color: #ffc4c4;
+}
+
+body.dark-mode .nav-links a.active,
+body.dark-mode .nav-links a:hover {
+    background-color: #555;
+}
+
+body.dark-mode .theme-toggle {
+    color: #ffc4c4;
+}
+/* From Uiverse.io by zanina-yassine */ 
+.button {
+  min-width: 120px;
+  margin-right: 40px;
+  position: relative;
+  cursor: pointer;
+
+  padding: 10px 0px;
+  border: 0;
+  border-radius: 20px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(71, 81, 92, 1) 0%,
+    rgba(11, 21, 30, 1) 45%
+  );
+
+  color: rgb(255, 255, 255, 0.66);
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button::before {
+  content: "";
+  width: 70%;
+  height: 1px;
+
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.2;
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.button:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
+  .btn-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    gap: 5rem;               /* Adds spacing between the buttons */
+    height: 10vh;            /* Keeps container height optional */
+    margin-top: 10px;       /* Moves the container downward */
+}
+
+/* From Uiverse.io by gharsh11032000 */ 
+.btn {
+  position: relative;
+  font-size: 20px;
+  font: 'Times New Roman';
+  width: 132px;
+  height: 50px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 2px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 138px;
+  height: 60px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.btn:hover::after {
+  filter: blur(30px);
+}
+
+.btn:hover::before {
+  transform: rotate(-180deg);
+}
+
+.btn:active::before {
+  scale: 0.7;
+}
+

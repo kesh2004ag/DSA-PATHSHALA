@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with OTP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 24px;
+            color: rgb(192, 126, 126);
+            margin-bottom: 30px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .input:focus {
+            outline: none;
+            border-color: rgb(192, 126, 126);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .login-button, .otp-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(192, 126, 126);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover, .otp-button:hover {
+            background-color: rgb(172, 106, 106);
+        }
+
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .toggle-form span {
+            cursor: pointer;
+            color: rgb(192, 126, 126);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heading" id="formTitle">Sign Up</div>
+        <form class="form" id="authForm" onsubmit="return false">
+            <input
+                placeholder="Mobile Number"
+                id="mobileNumber"
+                type="tel"
+                class="input"
+                required
+            />
+            <input
+                placeholder="OTP"
+                id="otp"
+                type="number"
+                class="input"
+                disabled
+                required
+            />
+            <div class="button-container">
+                <button type="button" class="otp-button" id="sendOtpBtn" onclick="sendOTP()">Send OTP</button>
+                <button type="submit" class="login-button" id="submitBtn">Sign Up</button>
+            </div>
+        </form>
+        <div class="toggle-form">
+            <p>Already have an account? <span id="toggleForm">Login</span></p>
+        </div>
+    </div>
+
+    <script>
+        let generatedOTP = null;
+        let isLoginMode = false;
+
+        function sendOTP() {
+            const mobileNumber = document.getElementById("mobileNumber").value;
+            if(!mobileNumber || mobileNumber.length !== 10) {
+                alert("Please enter a valid 10-digit mobile number");
+                return;
+            }
+
+            generatedOTP = Math.floor(100000 + Math.random() * 900000);
+            alert(`Your OTP is: ${generatedOTP}`);
+            
+            document.getElementById("otp").disabled = false;
+            document.getElementById("otp").focus();
+        }
+
+        function handleSubmit() {
+            const mobileNumber = document.getElementById("mobileNumber").value;
+            const otpInput = document.getElementById("otp").value;
+
+            if(!mobileNumber || !otpInput) {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            if(parseInt(otpInput) === generatedOTP) {
+                alert(isLoginMode ? "Login Successful!" : "Sign Up Successful!");
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid OTP. Please try again.");
+            }
+        }
+
+        function toggleFormMode() {
+            isLoginMode = !isLoginMode;
+            document.getElementById("formTitle").textContent = isLoginMode ? "Login" : "Sign Up";
+            document.getElementById("submitBtn").textContent = isLoginMode ? "Login" : "Sign Up";
+            document.getElementById("toggleForm").textContent = isLoginMode ? "Sign Up" : "Login";
+            document.getElementById("authForm").reset();
+            document.getElementById("otp").disabled = true;
+            generatedOTP = null;
+        }
+
+        document.getElementById("authForm").addEventListener("submit", handleSubmit);
+        document.getElementById("toggleForm").addEventListener("click", toggleFormMode);
+    </script>
+</body>
+</html>

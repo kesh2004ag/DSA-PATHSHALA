@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA PATHSHALA - About</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Container to hold cards */
+.card-container {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Unified card style */
+.card {
+    width: 150px;
+    height: 220px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+}
+
+.card-obj {
+    margin-left:160px;
+    margin-top:-80px;
+    width: 1200px;
+    height: 600px;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1.2px;
+    text-align: justify;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Heading style */
+.heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    color: #ff8080;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.heading:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #bbdcfd;
+}
+
+/* Button Styling */
+.button {
+    background-color: #2c3e50;
+    color: rgb(192, 189, 189);
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1a252f;
+}
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <h1>DSA Patshala</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="languages.html">Practice</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">🌞</button>
+        <button class="button" onclick="redirectToPage('login.html')">Sign Up</button>
+    </header>
+    
+    <!-- Heading -->
+    <div class="heading">Team Members</div>
+   
+    <div class="card-container">
+        <div class="card">Niharika</div>
+        <div class="card">Aarnav</div>
+        <div class="card">Aarush</div>
+        <div class="card">Keshav</div>
+        <div class="card">Paul</div>
+        <div class="card">Amrit</div>
+    </div>
+    
+    <div class="heading">Objective</div>
+    <div class="card-obj">
+        
+        <p>
+             
+
+            DSA Patshala is an educational platform designed to make Data Structures and Algorithms (DSA) accessible to learners in their regional languages. The platform aims to bridge the language gap and ensure that students from diverse linguistic backgrounds can grasp complex DSA concepts effectively.  
+
+One of its primary objectives is inclusivity in education. Many students struggle with learning DSA due to language barriers, as most high-quality resources are available only in English. By providing content in multiple regional languages, DSA PATHSHALA ensures that knowledge is not restricted by language proficiency.  
+
+Another key goal is enhancing conceptual clarity. Understanding DSA in one's native language helps learners grasp abstract concepts more intuitively, leading to better problem-solving skills and improved coding efficiency. The platform offers structured courses, interactive problem-solving sessions, and real-world coding challenges tailored to different learning levels.  
+
+DSA PATHSHALA also focuses on career readiness. By equipping students with strong algorithmic foundations, it prepares them for technical interviews and competitive programming. The platform integrates industry-relevant problems to help learners gain practical experience.  
+
+Additionally, DSA PATHSHALA promotes community-driven learning through forums, mentorship programs, and peer discussions, fostering a collaborative learning environment. Ultimately, it aims to empower students to excel in programming without language barriers holding them back.
+        </p>
+    </div>
+    
+    <script>
+        // JavaScript for theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Toggle dark mode and update button emoji
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+        });
+
+        // Redirect to login page
+        function redirectToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

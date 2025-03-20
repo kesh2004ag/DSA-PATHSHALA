@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack - Data Structures</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    /* Content section styles */
+    .content-section {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-section h2 {
+        color: #3700ff;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .content-section h3 {
+        color: #3700ff;
+        font-size: 1.5rem;
+        margin: 15px 0;
+    }
+
+    .content-section ul {
+        list-style-type: disc;
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+
+    .content-section li {
+        margin-bottom: 10px;
+    }
+
+    /* Code block styles */
+    .code-block {
+        background: #1a1a1a;
+        color: #00ff75;
+        padding: 15px;
+        border-radius: 8px;
+        overflow-x: auto;
+        font-family: 'Courier New', Courier, monospace;
+        margin: 15px 0;
+    }
+
+    /* Hindi notes style */
+    .hindi-notes {
+        background: #f8f8f8;
+        padding: 20px;
+        margin: 15px 0;
+        border-left: 4px solid #3700ff;
+        font-family: 'Noto Sans Devanagari', sans-serif;
+        display: none;
+        border-radius: 8px;
+    }
+
+    .english-notes {
+        display: block;
+        margin: 15px 0;
+    }
+
+    /* Language toggle button */
+    .lang-toggle {
+        background: #3700ff;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 15px 0;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+    }
+
+    .lang-toggle:hover {
+        background: #2b00cc;
+    }
+
+    /* Footer styles */
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: #020202;
+        color: #fffdfd;
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <h1>DSA Patshala</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Other Structures</a></li>
+                <li><a href="languages.html">Practice</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">🌞</button>
+    </header>
+
+    <main>
+        <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2024/12/05/09/20241205092356-JTEUO5LM.js"></script>
+        <section class="content-section">
+            <button id="langToggle" class="lang-toggle">Switch to Hindi</button>
+            
+            <h2>Stack</h2>
+            <div class="english-notes">
+                <p>A stack is a data structure that follows the Last In First Out (LIFO) principle. The last element added is the first one to be removed.</p>
+            </div>
+            
+            <div class="hindi-notes">
+                <h3>हिंदी में नोट्स:</h3>
+                <p>स्टैक एक डेटा स्ट्रक्चर है जो लास्ट इन फर्स्ट आउट (LIFO) सिद्धांत का पालन करता है। आखिरी जोड़ा गया एलिमेंट सबसे पहले निकाला जाता है।</p>
+            </div>
+
+            <h3>Key Features of Stack</h3>
+            <div class="english-notes">
+                <ul>
+                    <li><strong>Last In, First Out (LIFO):</strong> The most recently added element is removed first.</li>
+                    <li><strong>Push Operation:</strong> Adds an element to the top of the stack.</li>
+                    <li><strong>Pop Operation:</strong> Removes the top element from the stack.</li>
+                    <li><strong>Peek:</strong> Views the top element without removing it.</li>
+                </ul>
+            </div>
+
+            <div class="hindi-notes">
+                <p>स्टैक की मुख्य विशेषताएं:</p>
+                <ul>
+                    <li><strong>लास्ट इन, फर्स्ट आउट (LIFO):</strong> सबसे हाल में जोड़ा गया एलिमेंट सबसे पहले निकाला जाता है।</li>
+                    <li><strong>पुश ऑपरेशन:</strong> स्टैक के टॉप पर एलिमेंट जोड़ता है।</li>
+                    <li><strong>पॉप ऑपरेशन:</strong> स्टैक से टॉप एलिमेंट को हटाता है।</li>
+                    <li><strong>पीक:</strong> टॉप एलिमेंट को बिना हटाए देखता है।</li>
+                </ul>
+            </div>
+
+            <h3>Example of Stack in Python</h3>
+            <pre class="code-block">
+<code>
+# Stack Implementation in Python
+stack = []
+stack.append(10)  # Push 10
+stack.append(20)  # Push 20
+stack.append(30)  # Push 30
+print(stack.pop())  # Pop 30
+print(stack[-1])  # Peek at the top element (20)
+</code>
+            </pre>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>AlgoForge &copy; 2024</p>
+    </footer>
+
+    <script>
+        // JavaScript for theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+        });
+
+        // Language toggle functionality
+        const langToggle = document.getElementById('langToggle');
+        const hindiNotes = document.querySelectorAll('.hindi-notes');
+        const englishNotes = document.querySelectorAll('.english-notes');
+        let isHindi = false;
+
+        langToggle.addEventListener('click', () => {
+            isHindi = !isHindi;
+            hindiNotes.forEach(note => {
+                note.style.display = isHindi ? 'block' : 'none';
+            });
+            englishNotes.forEach(note => {
+                note.style.display = isHindi ? 'none' : 'block';
+            });
+            langToggle.textContent = isHindi ? 'Switch to English' : 'Switch to Hindi';
+        });
+    </script>
+</body>
+</html>

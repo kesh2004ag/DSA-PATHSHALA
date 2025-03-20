@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA-Pathshala - Home</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light mode background */
+            color: #333; /* Light mode text color */
+        }
+
+        /* Header Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background-color: #000;
+            color: #fff;
+            position: relative;
+        }
+
+        .logo h1 {
+            color: rgb(192, 126, 126);
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            border: 2px solid #444;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #fff;
+            transition: transform 0.2s ease;
+            position: absolute;
+            right: 60px; /* Adjusted slightly to the left */
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        /* Brutalist Button */
+        .brutalist-button {
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .dsa-container {
+            width: 80%; /* Adjust based on your layout needs */
+            max-width: 900px; /* Limit maximum width for better readability */
+            margin: 50px auto; /* Center the container */
+            padding: 25px; /* Increase padding for a more spacious look */
+            background-color: #f9fafb; /* Slightly brighter background */
+            border: 1px solid #e0e0e0; /* Subtle border */
+            border-radius: 12px; /* Smooth rounded corners */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow for elegance */
+            font-family: 'Roboto', sans-serif; /* Custom font */
+            line-height: 1.8; /* Improve readability */
+            color: #2c3e50; /* Slightly darker text color */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth hover effect */
+        }
+        
+        .dsa-container:hover {
+            transform: translateY(-5px); /* Lift container slightly on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+        }
+
+        /* Improved style for the header */
+        .dsa-container h2 {
+            font-size: 2.2rem; /* Larger font size */
+            margin-bottom: 20px; /* Add space below header */
+            color: #1f4c65; /* Header color */
+            text-align: center; /* Center align header */
+            text-transform: uppercase; /* Make the title uppercase */
+            letter-spacing: 1.5px; /* Add letter spacing for style */
+        }
+
+        /* Improved style for the paragraph */
+        .dsa-container p {
+            font-size: 1.1rem; /* Slightly larger text */
+            margin-bottom: 15px; /* Add spacing between paragraphs */
+            color: #555; /* Softer paragraph color */
+            text-align: justify; /* Justify text for better alignment */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .dsa-container {
+                width: 95%; /* Adjust width for smaller screens */
+                padding: 15px; /* Reduce padding */
+            }
+            .dsa-container h2 {
+                font-size: 1.8rem; /* Reduce header size */
+            }
+            .dsa-container p {
+                font-size: 1rem; /* Reduce paragraph size */
+            }
+        }
+        .bold {
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        /* From Uiverse.io by mobinkakei */ 
+.cta {
+  display: flex;
+  padding: 9px 13px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  background: #6225e6;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+  border: none;
+  cursor: pointer;
+  margin-left: 350px;
+  margin-top: 30px;
+}
+
+.cta:focus {
+  outline: none;
+}
+
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #fbc638;
+}
+
+.cta .second {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+
+.cta:hover .second {
+  transition: 0.5s;
+  margin-right: 45px;
+}
+
+.span {
+  transform: skewX(15deg);
+}
+
+.second {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+
+.one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+.two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.cta:hover .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.cta:hover .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.cta:hover .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #fbc638;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+          
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>DSA PATHSHALA</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="languages.html">Practice</a></li>
+            </ul>
+        </nav>
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle">🌞</button>
+       
+       
+         <button class="button" onclick="redirectToPage('login.html')">Sign Up</button>
+
+    </header>
+    <main>
+        <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2024/12/05/09/20241205092356-JTEUO5LM.js"></script>
+        <div class="dsa-container">
+            <h2>Data Structures and Algorithms (DSA)</h2>
+            <p>
+                Data Structures and Algorithms (DSA) refer to the study of data
+                structures used for organizing and storing data, along with the design
+                of solving problems that operate on these data structures.
+            </p>
+            <span class="bold">Why to Learn DSA?</span>
+
+            <p>    
+               Learning DSA boosts your problem-solving abilities and make you a stronger programmer.
+                DSA is crucial for tools like GPS, Search Engines, AI ChatBots, and many more apps that we use.
+                Top Companies like Google, Microsoft, Amazon, Apple, Meta and many other heavily focus on DSA in interviews.
+            </p>
+            <span class="bold">How to Learn DSA?</span>
+                <p>Learn at-least one programming language (C++, Java, Python or JavaScript) and build your basic logic.
+                Learn about Time and Space complexities
+                Learn Data Structures and Algorithms
+                Practice DSA.</p>
+        </div>
+        
+        <div class="btn-container">
+            <button class="btn" onclick="redirectToPage('array.html')">Array</button>
+            <button class="btn" onclick="redirectToPage('stack.html')">Stack</button>
+            <button class="btn" onclick="redirectToPage('queue.html')">Queues</button>
+            <button class="btn"onclick="redirectToPage('trees.html')">Trees</button>
+            <button class="btn" onclick=" redirectToPage('linkedlist.html')">Linked List</button>
+        </div>
+        
+          <div class="dsa-container">
+            
+            <h2><span class="bold">1. Arrays:</span></h2>
+            <ul>
+                <li><span class="bold">Definition</span>: A collection of elements stored at contiguous memory locations.</li>
+                <li><span class="bold">Types</span>: Static (fixed size) and Dynamic (resizable).</li>
+                <li><span class="bold">Operations</span>: Insertion, Deletion, Traversal, Searching.</li>
+            </ul>
+
+            <h2><span class="bold">2. Stack:</span></h2>
+            <ul>
+                <li><span class="bold">Definition</span>: A linear data structure that follows the Last In, First Out (LIFO) principle.</li>
+                <li><span class="bold">Types</span>: Array-based Stack, Linked List-based Stack.</li>
+                <li><span class="bold">Operations</span>: Push (Insertion), Pop (Deletion), Peek (Access top element).</li>
+            </ul>
+
+            <h2><span class="bold">3. Queues:</span></h2>
+            <ul>
+                <li><span class="bold">Definition</span>: A linear data structure that follows the First In, First Out (FIFO) principle</li>
+                <li><span class="bold">Types</span>: Linear Queue, Circular Queue, Priority Queue, Deque (Double-Ended Queue).</li>
+                <li><span class="bold">Operations</span>:  Enqueue (Insertion), Dequeue (Deletion), Peek (Access front element).</li>
+            </ul>
+            <h2><span class="bold">4. Trees:</span></h2>
+            <ul>
+                <li><span class="bold">Definition</span>:  A hierarchical data structure consisting of nodes connected by edges, with one root node and subtrees.</li>
+                <li><span class="bold">Types</span>: Binary Tree, Binary Search Tree (BST), AVL Tree, B-Trees, Heaps.</li>
+                <li><span class="bold">Operations</span>: Insertion, Deletion, Traversal (Inorder, Preorder, Postorder), Searching.</li>
+            </ul>
+            <h2><span class="bold">5. Linked List:</span></h2>
+            <ul>
+                <li><span class="bold">Definition</span>: A linear data structure where elements (nodes) are connected using pointers.</li>
+                <li><span class="bold">Types</span>: Singly Linked List (one pointer to the next node).
+                    Doubly Linked List (pointers to next and previous nodes).
+                    Circular Linked List (last node points to the first node).</li>
+                <li><span class="bold">Operations</span>: Insertion, Deletion, Traversal.</li>
+            </ul>
+            <!-- From Uiverse.io by mobinkakei --> 
+<button class="cta">
+    <span onclick="startquiz()">Start Quiz</span>
+    <span class="second">
+      <svg
+        width="50px"
+        height="20px"
+        viewBox="0 0 66 43"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <g
+          id="arrow"
+          stroke="none"
+          stroke-width="1"
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <path
+            class="one"
+            d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+          <path
+            class="two"
+            d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+          <path
+            class="three"
+            d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
+            fill="#FFFFFF"
+          ></path>
+        </g>
+      </svg>
+    </span>
+  </button>
+  
+        </div>
+    </main>
+ 
+
+
+    <script>
+        // JavaScript for theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        // Function to redirect to a specific page
+function redirectToPage(page) {
+    window.location.href = page;
+}
+
+function startquiz() {
+            window.location.href = "quiz.html";  // Redirect to quiz page
+        }
+
+
+        // Toggle dark mode and update button emoji
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+        });
+
+        // Function to redirect to login page
+        function openLoginPage() {
+            window.location.href = "login.html"; // Replace with the path to your login page
+        }
+        
+    </script>
+</body>
+</html>

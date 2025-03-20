@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .quiz-container {
+            margin: 100px auto;
+            padding: 20px;
+            width: 50%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: rgb(192, 189, 189);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        #options label {
+            display: block;
+            font-size: 18px;
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        #feedback {
+            font-weight: bold;
+        }
+
+        /* Centering the buttons */
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-left: 350px;
+        }
+
+        /* Navigation styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #007bff;
+        }
+
+        .nav-links li a.active {
+            color: #007bff;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+
+        /* Heading style from about.html */
+        .heading {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #ff8080;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #bbdcfd;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>DSA Patshala</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="languages.html">Practice</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">🌞</button>
+    </header>
+
+    <div class="quiz-container">
+        <h2>DSA Quiz</h2>
+        <div id="question-container">
+            <p id="question">Loading question...</p>
+            <div id="options"></div>
+        </div>
+        <p id="feedback"></p>
+        <div class="button-container">
+            <button id="submit-btn" onclick="checkAnswer()">Submit</button>
+            <button id="next-btn" onclick="nextQuestion()" style="display: none;">Next</button>
+        </div>
+        <p id="score">Score: 0</p>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the time complexity of binary search?",
+                options: ["O(n)", "O(log n)", "O(n log n)", "O(1)"],
+                answer: "O(log n)"
+            },
+            {
+                question: "Which data structure follows LIFO?",
+                options: ["Queue", "Stack", "Linked List", "Tree"],
+                answer: "Stack"
+            },
+            {
+                question: "What is the worst-case complexity of quicksort?",
+                options: ["O(n log n)", "O(n)", "O(n²)", "O(log n)"],
+                answer: "O(n²)"
+            },
+            {
+                question: "Which data structure is used for implementing recursion?",
+                options: ["Queue", "Stack", "Heap", "Graph"],
+                answer: "Stack"
+            },
+            {
+                question: "Which sorting algorithm is considered the fastest in the average case?",
+                options: ["Bubble Sort", "Merge Sort", "Quick Sort", "Insertion Sort"],
+                answer: "Quick Sort"
+            },
+            {
+                question: "Which data structure is used in BFS traversal?",
+                options: ["Stack", "Queue", "Linked List", "Tree"],
+                answer: "Queue"
+            },
+            {
+                question: "What is the worst-case time complexity of merge sort?",
+                options: ["O(n log n)", "O(n²)", "O(n)", "O(log n)"],
+                answer: "O(n log n)"
+            },
+            {
+                question: "Which data structure efficiently supports priority queue operations?",
+                options: ["Heap", "Stack", "Queue", "Graph"],
+                answer: "Heap"
+            },
+            {
+                question: "Which graph traversal algorithm uses a queue?",
+                options: ["DFS", "BFS", "Dijkstra", "Prim's"],
+                answer: "BFS"
+            },
+            {
+                question: "Which data structure is used to detect cycles in a directed graph?",
+                options: ["Stack", "Queue", "Hash Table", "Disjoint Set"],
+                answer: "Disjoint Set"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                document.getElementById("question-container").innerHTML = `<h3>Quiz Completed!</h3>`;
+                document.getElementById("score").innerText = `Final Score: ${score}`;
+                document.getElementById("submit-btn").style.display = "none";
+                document.getElementById("next-btn").style.display = "none";
+                return;
+            }
+
+            const questionObj = questions[currentQuestionIndex];
+            document.getElementById("question").innerText = questionObj.question;
+            
+            const optionsContainer = document.getElementById("options");
+            optionsContainer.innerHTML = "";
+
+            questionObj.options.forEach(option => {
+                const label = document.createElement("label");
+                label.innerHTML = `<input type="radio" name="option" value="${option}"> ${option}`;
+                optionsContainer.appendChild(label);
+            });
+
+            document.getElementById("feedback").innerText = "";
+            document.getElementById("submit-btn").style.display = "block";
+            document.getElementById("next-btn").style.display = "none";
+        }
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+
+            if (!selectedOption) {
+                document.getElementById("feedback").innerText = "Please select an option!";
+                document.getElementById("feedback").style.color = "red";
+                return;
+            }
+
+            const answer = selectedOption.value;
+            const correctAnswer = questions[currentQuestionIndex].answer;
+
+            if (answer === correctAnswer) {
+                score++;
+                document.getElementById("feedback").innerText = "Correct!";
+                document.getElementById("feedback").style.color = "green";
+            } else {
+                document.getElementById("feedback").innerText = `Wrong! The correct answer is: ${correctAnswer}`;
+                document.getElementById("feedback").style.color = "red";
+            }
+
+            document.getElementById("score").innerText = `Score: ${score}`;
+            document.getElementById("submit-btn").style.display = "none";
+            document.getElementById("next-btn").style.display = "block";
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        // Load the first question on page load
+        window.onload = loadQuestion;
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '🌙' : '🌞';
+        });
+    </script>
+</body>
+</html>
